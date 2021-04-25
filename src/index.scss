@@ -1,0 +1,24 @@
+#greeting_window {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+#examCard {
+  width: 30rem;
+  height: 35rem;
+  background: #262626;
+  display: inline-block;
+}
+
+#answer {
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: white;
+}
+
+#questionBlock {
+  background: yellow;
+  height: 35rem;
+}
