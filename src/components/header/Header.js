@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useHistory} from "react-router-dom";
-import FinishExamModal from './FinishExamModal';
+import {FinishExamModal} from "./index";
 
 const Header = () => {
   const history = useHistory();

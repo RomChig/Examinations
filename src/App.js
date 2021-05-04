@@ -6,7 +6,7 @@ import React, {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {setExamToState} from "./index";
 import {getUkrainianTest} from "./services";
-import Header from "./components/header/Header";
+import {Header} from "./components/header";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -29,7 +29,9 @@ const App = () => {
       <Container>
         <Header isLight={false}/>
         <Switch>
-          <Route exact path={'/test'} render={() => <Exam/>}/>
+          <Route exact path={'/test'} render={() => {
+          console.log(window.location)
+            return <Exam/>}}/>
           <Route path={'/'} render={() => <MainPage/>}/>
         </Switch>
       </Container>
