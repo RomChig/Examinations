@@ -29,7 +29,7 @@ const Question = (
     const renderTooltip = (props) => <Tooltip id="button-tooltip" {...props}>{makeKeyWordBold(hint)}</Tooltip>
     const [file, setFile] = useState();
     const [isInValidFile, setIsNotValidFile] = useState(true);
-    const [verification, setVerification] = useState('Обов\'язкого треба завантажити файл');
+    const [warningMessage, setWarningMessage] = useState('Обов\'язкого треба завантажити файл');
     const validFileTypes = ['image/png', 'image/jpg'];
 
     const handleDropDownItem = (buttonIndex, itemIndex) => {
@@ -45,7 +45,7 @@ const Question = (
                 setFile(e.target.files[0].name);
                 setIsNotValidFile(false);
             } else {
-                setVerification('Завантажувати можна ТIЛЬКИ файли з розширенням .png та .jpg');
+                setWarningMessage('Завантажувати можна ТIЛЬКИ файли з розширенням .png та .jpg');
             }
         } else {
             setIsNotValidFile(true);
@@ -101,7 +101,7 @@ const Question = (
                     <FormGroup as={Row}>
                         <FormFile type="file" custom className="custom-file-label" id="inputGroupFile">
                             <FormFile.Input isInvalid={isInValidFile} onChange={handleFile} />
-                            <Feedback type="invalid">{verification}</Feedback>
+                            <Feedback type="invalid">{warningMessage}</Feedback>
                         </FormFile>
                     </FormGroup>
                     }
