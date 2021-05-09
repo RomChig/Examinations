@@ -27,9 +27,7 @@ const Header = () => {
   };
 
   useEffect(() => {
-    if(history.location.pathname !== '/') {
       alertUserToLoseDataWhenReloadPage();
-    }
   }, []);
 
   return (

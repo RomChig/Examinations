@@ -1,5 +1,3 @@
-import React from "react";
-
 const regexDeleteSign = /\$.+?\$/g;
 const dollar = /\$/g;
 export const makeKeyWordBold = (string) => {

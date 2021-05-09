@@ -29,7 +29,6 @@ const combiner_reducer = combineReducers(
     }
 )
 
-
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 export const store = createStore(combiner_reducer, loadFromLocalStorage(), devTools);
 

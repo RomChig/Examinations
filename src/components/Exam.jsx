@@ -43,7 +43,9 @@ const Exam = ({}) => {
             )
         }
     }
-
+    if(question.question.type === "WRITE_ESSAY") {
+        console.log(question)
+    }
     return (
         <div id='exam'>
             <div className="d-flex flex-wrap text-white mt-5">
