@@ -22,10 +22,6 @@ const Exam = ({}) => {
         }
     }
 
-    const wasChecked = () => {
-
-    }
-
     const handleClick = (e) => {
         e.preventDefault();
         setQuestion(
@@ -48,9 +44,6 @@ const Exam = ({}) => {
         }
     }
 
-    let time = new Date();
-    time.setSeconds(time.getSeconds() + 5400);
-
     return (
         <div id='exam'>
             <div className="d-flex flex-wrap text-white mt-5">
@@ -63,10 +56,13 @@ const Exam = ({}) => {
                               hint={question.question.hint}
                               question={question.question.question}
                               type={question.question.type}
-                              route={goTo}
                     />
                 }
-            <Timer expiryTimestamp={time}/>
+            <Timer expiryTimestamp={() => {
+                let time = new Date();
+                time.setSeconds(time.getSeconds() + 5400);
+                return time;
+            }}/>
             <div id="submitButton" className="d-grid gap-2 col-3 mx-auto float-end">
                 <button className="btn btn-primary" type="submit">Submit</button>
             </div>

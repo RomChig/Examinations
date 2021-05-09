@@ -16,31 +16,26 @@ const Question = (
         cost = {},
         hint = '',
         question = '',
-        type = '',
-        route = f => f
+        type = ''
     }) => {
-    let time = new Date();
-    time.setSeconds(time.getSeconds() + 5400);
-    const title = makeKeyWordBold(hint);
-    const renderTooltip = (props) => (
-        <Tooltip id="button-tooltip" {...props}>
-            {makeKeyWordBold(hint)}
-        </Tooltip>
-    );
+    const renderTooltip = (props) => <Tooltip id="button-tooltip" {...props}>{makeKeyWordBold(hint)}</Tooltip>
+
+    const handleDropDownItem = (buttonIndex, itemIndex) => {
+        buttonIndex = parseInt(buttonIndex) + 1;
+        itemIndex = parseInt(itemIndex) + 1;
+        console.log(({buttonIndex, itemIndex}));
+    }
     return (
         <div id="questionBlock" className="rounded d-inline-flex">
             <div id="examCard" className="card border border-warning">
                 <div className="card-header text-white">
                     <div className='text-start'>{makeKeyWordBold(question)}</div>
-                   <OverlayTrigger delay={{ show: 200, hide: 300 }} overlay={renderTooltip} placement="right-start">
-                       <Button className="mt-2" variant="success">Пiдказка</Button>
-                   </OverlayTrigger>
+                    <OverlayTrigger delay={{show: 200, hide: 300}} overlay={renderTooltip} placement="right-start">
+                        <Button className="mt-2" variant="success">Пiдказка</Button>
+                    </OverlayTrigger>
                 </div>
                 <div className="card-body mt-5">
                     {answers.map((answer, index) => {
-                        if (type === COMPARE_FEW) {
-                            console.log(answers)
-                        }
                         switch (type) {
                             case PICK_ONE:
                                 return <div key={index} id="answer">
@@ -66,9 +61,11 @@ const Question = (
                                                     variant="secondary"
                                                     size="sm"
                                                     title={answer.left}>
-                                        {answers.map((answer, index) => {
-                                            return <DropdownItem onSelect={event => console.log(answer.right)}
-                                                                 eventKey={index}>{makeKeyWordBold(answer.right)}</DropdownItem>
+                                        {answers.map((answer, itemIndex) => {
+                                            return <DropdownItem onSelect={() => handleDropDownItem(index, itemIndex)}
+                                                eventKey={itemIndex}>
+                                                {makeKeyWordBold(answer.right)}
+                                            </DropdownItem>
                                         })}
                                     </DropdownButton>
                                 </div>
