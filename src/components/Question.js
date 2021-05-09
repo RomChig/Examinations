@@ -1,11 +1,9 @@
 import React from 'react';
 
 import '../index.scss'
-import {ButtonGroup, DropdownButton, FormCheck} from "react-bootstrap";
+import {Button, ButtonGroup, DropdownButton, FormCheck, OverlayTrigger, Tooltip} from "react-bootstrap";
 import DropdownItem from "react-bootstrap/DropdownItem";
 import {makeKeyWordBold} from "../utils";
-
-const boldString = (str, substr) => str.replace(substr, '<b>' + substr + '</b>');
 
 const PICK_ONE = 'PICK_ONE';
 const PICK_FEW = 'PICK_FEW';
@@ -23,13 +21,22 @@ const Question = (
     }) => {
     let time = new Date();
     time.setSeconds(time.getSeconds() + 5400);
+    const title = makeKeyWordBold(hint);
+    const renderTooltip = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+            {makeKeyWordBold(hint)}
+        </Tooltip>
+    );
     return (
         <div id="questionBlock" className="rounded d-inline-flex">
             <div id="examCard" className="card border border-warning">
                 <div className="card-header text-white">
                     <div className='text-start'>{makeKeyWordBold(question)}</div>
+                   <OverlayTrigger delay={{ show: 200, hide: 300 }} overlay={renderTooltip} placement="right">
+                       <Button className="mt-2" variant="success">Пiдказка</Button>
+                   </OverlayTrigger>
                 </div>
-                <div className="card-body mt-5" title={hint}>
+                <div className="card-body mt-5">
                     {answers.map((answer, index) => {
                         if (type === COMPARE_FEW) {
                             console.log(answers)
