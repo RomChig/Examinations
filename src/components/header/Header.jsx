@@ -17,16 +17,18 @@ const Header = () => {
     }
   }
 
-  useEffect(() => {
+  const alertUserToLoseDataWhenReloadPage = () => {
+    const alertUser = (e) => {
+      e.preventDefault();
+      e.returnValue = "";
+    }
     window.addEventListener("beforeunload", alertUser);
-    return () => {
-      window.removeEventListener("beforeunload", alertUser);
-    };
-  }, []);
-  const alertUser = (e) => {
-    e.preventDefault();
-    e.returnValue = "";
+    return () => window.removeEventListener("beforeunload", alertUser);
   };
+
+  useEffect((e) => {
+    alertUserToLoseDataWhenReloadPage();
+  }, []);
 
   return (
     <header className="header big-container" id="top">

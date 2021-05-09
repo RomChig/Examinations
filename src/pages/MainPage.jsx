@@ -5,7 +5,6 @@ import {useSelector} from "react-redux";
 
 const MainPage = () => {
     const exam = useSelector(state => state.main_page.exam);
-    console.log(exam)
     return (
         <>
             <div id="greeting_window">
@@ -15,7 +14,6 @@ const MainPage = () => {
                         {exam.about.title}
                     </div>
                     <div className="card-body mt-5">
-                        {/*<h5 className="card-title">Максимальна кiлькiсть балiв: {exam.about.total}</h5>*/}
                         <h5 className="card-title">Кiлькiсть питань: {exam.questions.length}</h5>
                         <h5 className="card-title">Час: 90 хв</h5>
                     </div>
