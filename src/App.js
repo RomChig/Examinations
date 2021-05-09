@@ -21,7 +21,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Container>
-        <Header isLight={false}/>
+        <Header/>
         <Switch>
           <Route exact path={'/test'} render={() => <Exam/>}/>
           <Route path={'/'} render={() => {

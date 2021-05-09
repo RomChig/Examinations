@@ -66,7 +66,7 @@ const Exam = ({}) => {
                 return time;
             }}/>
             <div id="submitButton" className="d-grid gap-2 col-3 mx-auto float-end">
-                <button className="btn btn-primary" type="submit">Submit</button>
+                <button className="btn btn-primary" type="submit">Завершити тест</button>
             </div>
             <QuestionRouter route={goTo}/>
         </div>

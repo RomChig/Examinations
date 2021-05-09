@@ -6,8 +6,8 @@ import {useSelector} from "react-redux";
 const MainPage = () => {
     const exam = useSelector(state => state.main_page.exam);
     return (
-        <>
-            <div id="greeting_window">
+        !exam ? ''
+            : <div id="greeting_window">
                 <div id="card" className="card text-center text-white"
                      style={{width: '25rem', height: '25rem', background: '#434343'}}>
                     <div className="card-header fw-bold">
@@ -22,7 +22,6 @@ const MainPage = () => {
                     </div>
                 </div>
             </div>
-        </>
     )
 }
 
