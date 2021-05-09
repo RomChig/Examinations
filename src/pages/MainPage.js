@@ -20,7 +20,7 @@ const MainPage = () => {
                         <h5 className="card-title">Час: 90 хв</h5>
                     </div>
                     <div className="card-footer">
-                        <NavLink to={"/test"} className="btn btn-outline-dark">Start test</NavLink>
+                        <NavLink to={"/test"} className="btn btn-outline-dark">Розпочати</NavLink>
                     </div>
                 </div>
             </div>

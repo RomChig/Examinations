@@ -17,6 +17,5 @@ export const loadFromLocalStorage = () => {
     return JSON.parse(serialisedState);
   } catch (e) {
     console.warn(e);
-    return undefined;
   }
 }

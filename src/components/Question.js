@@ -3,6 +3,7 @@ import React from 'react';
 import '../index.scss'
 import {ButtonGroup, DropdownButton, FormCheck} from "react-bootstrap";
 import DropdownItem from "react-bootstrap/DropdownItem";
+import {makeKeyWordBold} from "../utils";
 
 const boldString = (str, substr) => str.replace(substr, '<b>' + substr + '</b>');
 
@@ -20,14 +21,13 @@ const Question = (
         type = '',
         route = f => f
     }) => {
-    let str = '';
     let time = new Date();
     time.setSeconds(time.getSeconds() + 5400);
     return (
         <div id="questionBlock" className="rounded d-inline-flex">
             <div id="examCard" className="card border border-warning">
                 <div className="card-header text-white">
-                    <div className='text-start'>{question}</div>
+                    <div className='text-start'>{makeKeyWordBold(question)}</div>
                 </div>
                 <div className="card-body mt-5" title={hint}>
                     {answers.map((answer, index) => {
@@ -39,7 +39,7 @@ const Question = (
                                 return <div key={index} id="answer">
                                     <FormCheck type='radio'
                                                id={answer.answer}
-                                               label={answer.answer}
+                                               label={makeKeyWordBold(answer.answer)}
                                                name='answer'
                                     />
                                 </div>
@@ -48,7 +48,7 @@ const Question = (
                                 return <div key={index} id="answer">
                                     <FormCheck type='checkbox'
                                                id={answer.answer}
-                                               label={answer.answer}
+                                               label={makeKeyWordBold(answer.answer)}
                                     />
                                 </div>
                             case COMPARE_FEW:
@@ -61,22 +61,13 @@ const Question = (
                                                     title={answer.left}>
                                         {answers.map((answer, index) => {
                                             return <DropdownItem onSelect={event => console.log(answer.right)}
-                                                                 eventKey={index}>{answer.right}</DropdownItem>
+                                                                 eventKey={index}>{makeKeyWordBold(answer.right)}</DropdownItem>
                                         })}
                                     </DropdownButton>
                                 </div>
                         }
                     })}
                 </div>
-                {/*{answer.answer.split(' ').forEach(el => {*/}
-                {/*    if (el.startsWith('$') && el.endsWith('$')) {*/}
-                {/*        {*/}
-                {/*          str = boldString(answer.answer, el);*/}
-                {/*        }*/}
-                {/*    }*/}
-                {/*})}*/}
-                {/*<div className="card-footer text-muted">*/}
-                {/*</div>*/}
             </div>
         </div>
     )

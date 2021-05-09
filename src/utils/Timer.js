@@ -9,8 +9,7 @@ const Timer = ({expiryTimestamp}) => {
         days
     } = useTimer({
         expiryTimestamp, onExpire: () => {
-            alert('time is over')
-
+            alert('Час закiнчився')
         }
     });
 

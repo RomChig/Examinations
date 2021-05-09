@@ -29,9 +29,7 @@ const App = () => {
       <Container>
         <Header isLight={false}/>
         <Switch>
-          <Route exact path={'/test'} render={() => {
-          console.log(window.location)
-            return <Exam/>}}/>
+          <Route exact path={'/test'} render={() => <Exam/>}/>
           <Route path={'/'} render={() => <MainPage/>}/>
         </Switch>
       </Container>
