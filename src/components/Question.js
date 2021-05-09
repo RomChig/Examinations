@@ -32,7 +32,7 @@ const Question = (
             <div id="examCard" className="card border border-warning">
                 <div className="card-header text-white">
                     <div className='text-start'>{makeKeyWordBold(question)}</div>
-                   <OverlayTrigger delay={{ show: 200, hide: 300 }} overlay={renderTooltip} placement="right">
+                   <OverlayTrigger delay={{ show: 200, hide: 300 }} overlay={renderTooltip} placement="right-start">
                        <Button className="mt-2" variant="success">Пiдказка</Button>
                    </OverlayTrigger>
                 </div>
