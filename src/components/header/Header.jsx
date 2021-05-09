@@ -26,8 +26,10 @@ const Header = () => {
     return () => window.removeEventListener("beforeunload", alertUser);
   };
 
-  useEffect((e) => {
-    alertUserToLoseDataWhenReloadPage();
+  useEffect(() => {
+    if(history.location.pathname !== '/') {
+      alertUserToLoseDataWhenReloadPage();
+    }
   }, []);
 
   return (
