@@ -5,10 +5,10 @@ const QuestionRouter = ({route = f => f}) => {
         <nav aria-label="Page navigation example">
             <ul className="pagination">
                 <li className="page-item">
-                    <button onClick={() => route('prev')} className="page-link">Previous</button>
+                    <button onClick={() => route('prev')} className="page-link">Попереднє</button>
                 </li>
                 <li className="page-item">
-                    <button onClick={() => route('next')} className="page-link">Next</button>
+                    <button onClick={() => route('next')} className="page-link">Наступне</button>
                 </li>
             </ul>
         </nav>
