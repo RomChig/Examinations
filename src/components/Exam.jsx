@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Question from "./Question";
 import {useSelector} from "react-redux";
 import '../index.scss';
-import {QuestionRouter, shuffle, Time} from "../utils";
+import {QuestionRouter, Time} from "../utils";
 
 const Exam = ({}) => {
     const exam = useSelector(state => state.main_page.exam);
