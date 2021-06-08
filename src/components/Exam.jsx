@@ -7,8 +7,6 @@ import {QuestionRouter, shuffle, Time} from "../utils";
 const Exam = ({}) => {
     const exam = useSelector(state => state.main_page.exam);
     const [question, setQuestion] = useState({index: 1, question: exam.questions[0]});
-    shuffle(exam.questions);
-    exam.questions.forEach(question => shuffle(question.answers));
     let arr = [];
     for (let i = 1; i <= exam.questions.length; i++) {
         if (i === question.index) {
@@ -26,12 +24,15 @@ const Exam = ({}) => {
 
     const handleClick = (e) => {
         e.preventDefault();
-        setQuestion(
-            {
-                index: parseInt(e.target.value),
-                question: exam.questions[e.target.value - 1]
-            }
-        );
+        const questionIndexToFollow = parseInt(e.target.value);
+        if (questionIndexToFollow !== question.index) {
+            setQuestion(
+                {
+                    index: questionIndexToFollow,
+                    question: exam.questions[e.target.value - 1]
+                }
+            );
+        }
     }
 
     const goTo = (route = 'next') => {

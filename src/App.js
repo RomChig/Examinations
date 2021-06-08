@@ -7,6 +7,7 @@ import {useDispatch} from "react-redux";
 import {setExamToState} from "./index";
 import {getUkrainianTest, loadFromLocalStorage} from "./services";
 import {Header} from "./components/header";
+import {shuffle} from "./utils";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,11 @@ const App = () => {
   const loadExam = () => {
     const exams = loadFromLocalStorage();
     if (!exams || isEmptyStorage(exams)) {
-      getUkrainianTest().then(exam => dispatch(setExamToState(exam)));
+      getUkrainianTest().then(exam => {
+        shuffle(exam.questions);
+        exam.questions.forEach(question => shuffle(question.answers));
+        dispatch(setExamToState(exam))
+      });
     }
   }
 

@@ -10,7 +10,7 @@ const Time = ({expiryTimestamp}) => {
         hours
     } = useTimer({
         expiryTimestamp, onExpire: () => {
-            alert('Час закiнчився')
+            alert('Час закiнчився');
         }
     });
 
