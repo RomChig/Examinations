@@ -6,10 +6,10 @@ import {QuestionRouter, Time} from "../utils";
 
 const Exam = ({}) => {
     const exam = useSelector(state => state.main_page.exam);
-    const [question, setQuestion] = useState({index: 1, question: exam.questions[0]});
+    const [currentQuestion, setCurrentQuestion] = useState({index: 1, question: exam.questions[0]});
     let arr = [];
     for (let i = 1; i <= exam.questions.length; i++) {
-        if (i === question.index) {
+        if (i === currentQuestion.index) {
             arr.push(<div key={i} className="flex-column p-2">
                 <button className={'btn btn-warning'} type="button" value={i}
                         onClick={(e) => handleClick(e)}>{i}</button>
@@ -25,8 +25,8 @@ const Exam = ({}) => {
     const handleClick = (e) => {
         e.preventDefault();
         const questionIndexToFollow = parseInt(e.target.value);
-        if (questionIndexToFollow !== question.index) {
-            setQuestion(
+        if (questionIndexToFollow !== currentQuestion.index) {
+            setCurrentQuestion(
                 {
                     index: questionIndexToFollow,
                     question: exam.questions[e.target.value - 1]
@@ -36,9 +36,9 @@ const Exam = ({}) => {
     }
 
     const goTo = (route = 'next') => {
-        let neededIndex = route === 'next' ? question.index + 1 : question.index - 1;
+        let neededIndex = route === 'next' ? currentQuestion.index + 1 : currentQuestion.index - 1;
         if (neededIndex >= 1 && neededIndex <= 23) {
-            setQuestion(
+            setCurrentQuestion(
                 {
                     index: neededIndex,
                     question: exam.questions[neededIndex - 1]
@@ -59,12 +59,12 @@ const Exam = ({}) => {
                 {arr}
             </div>
             {
-                <Question key={question.index}
-                          answers={question.question.answers}
-                          cost={question.question.cost}
-                          hint={question.question.hint}
-                          question={question.question.question}
-                          type={question.question.type}
+                <Question key={currentQuestion.index}
+                          answers={currentQuestion.question.answers}
+                          cost={currentQuestion.question.cost}
+                          hint={currentQuestion.question.hint}
+                          question={currentQuestion.question.question}
+                          type={currentQuestion.question.type}
                 />
             }
             <Time expiryTimestamp={getExamTime}/>
