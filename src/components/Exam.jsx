@@ -2,11 +2,13 @@ import React, {useState} from 'react';
 import Question from "./Question";
 import {useSelector} from "react-redux";
 import '../index.scss';
-import {QuestionRouter, Time} from "../utils";
+import {QuestionRouter, shuffle, Time} from "../utils";
 
 const Exam = ({}) => {
     const exam = useSelector(state => state.main_page.exam);
     const [question, setQuestion] = useState({index: 1, question: exam.questions[0]});
+    shuffle(exam.questions);
+    exam.questions.forEach(question => shuffle(question.answers));
     let arr = [];
     for (let i = 1; i <= exam.questions.length; i++) {
         if (i === question.index) {
@@ -55,15 +57,15 @@ const Exam = ({}) => {
             <div className="d-flex flex-wrap text-white mt-5">
                 {arr}
             </div>
-                {
-                    <Question key={question.index}
-                              answers={question.question.answers}
-                              cost={question.question.cost}
-                              hint={question.question.hint}
-                              question={question.question.question}
-                              type={question.question.type}
-                    />
-                }
+            {
+                <Question key={question.index}
+                          answers={question.question.answers}
+                          cost={question.question.cost}
+                          hint={question.question.hint}
+                          question={question.question.question}
+                          type={question.question.type}
+                />
+            }
             <Time expiryTimestamp={getExamTime}/>
             <div id="submitButton" className="d-grid gap-2 col-3 float-end me-3 mt-2">
                 <button className="btn btn-warning" type="submit">Завершити тест</button>
