@@ -34,7 +34,11 @@ const Header = () => {
   return (
     <header className="header big-container" id="top">
       <div className="header__container">
-          <img src="/header_logo.jpg" className="header_img" alt="logo" variant="primary" onClick={handleShow} width="209" height="50"/>
+          <img src="/header_logo.jpg"
+               className="header_img"
+               alt="logo" variant="primary"
+               onClick={handleShow}
+               width="209" height="50"/>
       </div>
       <FinishExamModal show={show} onFinish={handleClose} setShow={setShow}/>
     </header>
