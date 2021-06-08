@@ -7,8 +7,6 @@
 #questionBlock, #examCard, #timerBlock{
   width: 51rem;
   height: 32rem;
-  //background: #262626;
-  //background: #ff6020;
   background: #434343;
   display: inline-block;
 }
@@ -25,4 +23,14 @@
 #timerBlock {
   width: 27rem;
   height: 12rem;
+}
+
+.header_img {
+  margin-top: 0.60rem;
+}
+
+#card {
+  width: 25rem;
+  height: 25rem;
+  background: #434343;
 }

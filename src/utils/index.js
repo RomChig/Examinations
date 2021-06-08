@@ -1,9 +1,9 @@
 import QuestionRouter from "./QuestionRouter";
-import Timer from "./Timer";
+import Time from "./Timer";
 import {makeKeyWordBold} from "./utils"
 
 export {
     QuestionRouter,
-    Timer,
+    Time,
     makeKeyWordBold
 }

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Question from "./Question";
 import {useSelector} from "react-redux";
 import '../index.scss';
-import {QuestionRouter, Timer} from "../utils";
+import {QuestionRouter, Time} from "../utils";
 
 const Exam = ({}) => {
     const exam = useSelector(state => state.main_page.exam);
@@ -43,9 +43,13 @@ const Exam = ({}) => {
             )
         }
     }
-    if(question.question.type === "WRITE_ESSAY") {
-        console.log(question)
+
+    const getExamTime = () => {
+        let time = new Date();
+        time.setSeconds(time.getSeconds() + 5400);
+        return time;
     }
+
     return (
         <div id='exam'>
             <div className="d-flex flex-wrap text-white mt-5">
@@ -60,13 +64,9 @@ const Exam = ({}) => {
                               type={question.question.type}
                     />
                 }
-            <Timer expiryTimestamp={() => {
-                let time = new Date();
-                time.setSeconds(time.getSeconds() + 5400);
-                return time;
-            }}/>
-            <div id="submitButton" className="d-grid gap-2 col-3 mx-auto float-end">
-                <button className="btn btn-primary" type="submit">Завершити тест</button>
+            <Time expiryTimestamp={getExamTime}/>
+            <div id="submitButton" className="d-grid gap-2 col-3 float-end me-3 mt-2">
+                <button className="btn btn-warning" type="submit">Завершити тест</button>
             </div>
             <QuestionRouter route={goTo}/>
         </div>

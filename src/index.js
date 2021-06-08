@@ -6,7 +6,6 @@ import {combineReducers, createStore} from "redux";
 import {loadFromLocalStorage, saveToLocalStorage} from "./services";
 
 export const setExamToState = (exam = {}) => {
-    console.log(exam)
     return {
         type: "LOAD_EXAM",
         exam
@@ -23,9 +22,19 @@ export const main_page = (current_state = {}, action = {}) => {
             return current_state;
     }
 }
+export const login_page = (current_state = {}, action = {}) => {
+    switch (action.type) {
+        case "LOGIN":
+            return {
+                isAuthorized: action.authorized
+            }
+        default:
+            return current_state;
+    }
+}
 const combiner_reducer = combineReducers(
     {
-        main_page
+        main_page, login_page
     }
 )
 

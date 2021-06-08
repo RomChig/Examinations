@@ -10,11 +10,11 @@ const FinishExamModal = (
   return (
     <Modal  show={show} onHide={setShow}>
       <Modal.Header style={{background: '#434343'}}>
-        <Modal.Title className="text-white">Are you sure to finish the test ?</Modal.Title>
+        <Modal.Title className="text-white">Ви впевнені, що хочете завершити тест?</Modal.Title>
           <br/>
           <div className="justify-content-center">
               <Button variant="danger" onClick={onFinish}>
-                  Finish
+                  Завершити
               </Button>
           </div>
       </Modal.Header>

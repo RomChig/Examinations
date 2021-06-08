@@ -1,14 +1,15 @@
 import React from "react";
 
 const QuestionRouter = ({route = f => f}) => {
+    const warningStyle = 'btn btn-warning';
     return (
-        <nav aria-label="Page navigation example">
+        <nav className="mt-2 m-2" aria-label="Page navigation example">
             <ul className="pagination">
                 <li className="page-item">
-                    <button onClick={() => route('prev')} className="page-link">Попереднє</button>
+                    <button onClick={() => route('prev')} className={warningStyle}>Попереднє</button>
                 </li>
                 <li className="page-item">
-                    <button onClick={() => route('next')} className="page-link">Наступне</button>
+                    <button onClick={() => route('next')} className={warningStyle}>Наступне</button>
                 </li>
             </ul>
         </nav>

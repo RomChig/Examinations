@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useHistory} from "react-router-dom";
 import {FinishExamModal} from "./index";
+import '../../index.scss';
 
 const Header = () => {
   const history = useHistory();
@@ -33,7 +34,7 @@ const Header = () => {
   return (
     <header className="header big-container" id="top">
       <div className="header__container">
-        <img src="/download.jpg" alt="logo" variant="primary" onClick={handleShow}/>
+          <img src="/header_logo.jpg" className="header_img" alt="logo" variant="primary" onClick={handleShow} width="209" height="50"/>
       </div>
       <FinishExamModal show={show} onFinish={handleClose} setShow={setShow}/>
     </header>

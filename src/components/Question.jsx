@@ -35,20 +35,17 @@ const Question = (
     const handleDropDownItem = (buttonIndex, itemIndex) => {
         buttonIndex = parseInt(buttonIndex) + 1;
         itemIndex = parseInt(itemIndex) + 1;
-        console.log(({buttonIndex, itemIndex}));
     }
 
     const handleFile = (e) => {
         if (e.target.files.length !== 0) {
             if (e.target.files[0].type === validFileTypes[0] || e.target.files[0].type === validFileTypes[1]) {
-                console.log(e.target.files[0]);
                 setFile(e.target.files[0].name);
                 setIsNotValidFile(false);
             } else {
                 setWarningMessage('Завантажувати можна ТIЛЬКИ файли з розширенням .png та .jpg');
+                setIsNotValidFile(true)
             }
-        } else {
-            setIsNotValidFile(true);
         }
     }
     return (

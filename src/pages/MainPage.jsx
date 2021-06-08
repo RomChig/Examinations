@@ -8,8 +8,7 @@ const MainPage = () => {
     return (
         !exam ? ''
             : <div id="greeting_window">
-                <div id="card" className="card text-center text-white"
-                     style={{width: '25rem', height: '25rem', background: '#434343'}}>
+                <div id="card" className="card text-center text-white">
                     <div className="card-header fw-bold">
                         {exam.about.title}
                     </div>
