@@ -2,11 +2,13 @@ import React, {useState} from 'react';
 import Question from "./Question";
 import {useSelector} from "react-redux";
 import '../index.scss';
-import {QuestionRouter, Time} from "../utils";
+import {PATH_TO_RESULT_PAGE, QuestionRouter, Time} from "../utils";
+import {useHistory} from "react-router-dom";
 
 const Exam = ({}) => {
     const exam = useSelector(state => state.main_page.exam);
     const [currentQuestion, setCurrentQuestion] = useState({index: 1, question: exam.questions[0]});
+    const history = useHistory();
     let arr = [];
     for (let i = 1; i <= exam.questions.length; i++) {
         if (i === currentQuestion.index) {
@@ -69,7 +71,8 @@ const Exam = ({}) => {
             }
             <Time expiryTimestamp={getExamTime}/>
             <div id="submitButton" className="d-grid gap-2 col-3 float-end me-3 mt-2">
-                <button className="btn btn-warning" type="submit">Завершити тест</button>
+                <button className="btn btn-warning"
+                        type="submit" onClick={() => history.push(PATH_TO_RESULT_PAGE)}>Завершити тест</button>
             </div>
             <QuestionRouter route={goTo}/>
         </div>

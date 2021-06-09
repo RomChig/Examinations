@@ -1,5 +1,8 @@
 const regexDeleteSign = /\$.+?\$/g;
 const dollar = /\$/g;
+export const PATH_TO_MAIN_PAGE = '/';
+export const PATH_TO_TEST_PAGE = '/test';
+export const PATH_TO_RESULT_PAGE = '/test/finish';
 export const makeKeyWordBold = (string) => {
     const keyWords = string.match(regexDeleteSign);
     if (!keyWords || !string) {

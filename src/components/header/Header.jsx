@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useHistory} from "react-router-dom";
 import {FinishExamModal} from "./index";
 import '../../index.scss';
+import {PATH_TO_MAIN_PAGE, PATH_TO_RESULT_PAGE} from "../../utils";
 
 const Header = () => {
   const history = useHistory();
@@ -9,12 +10,16 @@ const Header = () => {
 
   const handleClose = () => {
     setShow(false);
-    history.push('/');
+    history.push(PATH_TO_MAIN_PAGE);
   }
 
   const handleShow = () => {
-    if (window.location.pathname !== '/') {
+    if (window.location.pathname !== PATH_TO_MAIN_PAGE) {
       setShow(true);
+    }
+    if(window.location.pathname === PATH_TO_RESULT_PAGE) {
+      setShow(false);
+      history.push(PATH_TO_MAIN_PAGE);
     }
   }
 

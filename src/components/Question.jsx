@@ -28,13 +28,17 @@ const Question = (
     }) => {
     const renderTooltip = (props) => <Tooltip id="button-tooltip" {...props}>{makeKeyWordBold(hint)}</Tooltip>
     const [file, setFile] = useState();
+    const [currentAnswear, setCurrentAnswer] = useState();
     const [isInValidFile, setIsNotValidFile] = useState(true);
     const [warningMessage, setWarningMessage] = useState('Обов\'язкого треба завантажити файл');
     const validFileTypes = ['image/png', 'image/jpg'];
 
-    const handleDropDownItem = (buttonIndex, itemIndex) => {
-        buttonIndex = parseInt(buttonIndex) + 1;
-        itemIndex = parseInt(itemIndex) + 1;
+    const handleDropDownItem = (itemIndex, answer) => {
+        // buttonIndex = parseInt(buttonIndex) + 1;
+        // itemIndex = parseInt(itemIndex) + 1;
+        setCurrentAnswer(currentAnswear);
+        console.log(currentAnswear)
+        console.log(answer)
     }
 
     const handleFile = (e) => {
@@ -86,7 +90,7 @@ const Question = (
                                                     title={answer.left}>
                                         {answers.map((answer, itemIndex) => {
                                             return <DropdownItem key={itemIndex}
-                                                                 onSelect={() => handleDropDownItem(index, itemIndex)}
+                                                                 onSelect={() => handleDropDownItem(itemIndex, answer)}
                                                 eventKey={itemIndex}>{makeKeyWordBold(answer.right)}
                                             </DropdownItem>
                                         })}
