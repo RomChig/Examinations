@@ -5,7 +5,7 @@ export const ResultPage = () => {
             <div id="greeting_window">
                 <div id="card" className="card text-center text-white">
                     <div className="card-header fw-bold">
-                        <h5 className="card-title">Дякуємо за успішне пройдення тесту</h5>
+                        <h5 className="card-title">Дякуємо за успішне завершення тесту</h5>
                     </div>
                     <div className="card-body mt-5">
                         З вами зв'яжется спеціаліст та оголосить результати
