@@ -1,5 +1,4 @@
-import {Exam} from './components'
-import {Container} from './components'
+import {Exam, Container} from './components'
 import MainPage from './pages/MainPage'
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import React from "react";

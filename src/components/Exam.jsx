@@ -51,7 +51,7 @@ const Exam = ({}) => {
 
     const getExamTime = () => {
         let time = new Date();
-        time.setSeconds(time.getSeconds() + 20);
+        time.setSeconds(time.getSeconds() + 5400);
         return time;
     }
 
