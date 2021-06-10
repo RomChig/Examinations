@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Question from "./Question";
 import {useSelector} from "react-redux";
 import '../index.scss';
-import {PATH_TO_RESULT_PAGE, QuestionRouter, Time} from "../utils";
+import {PATH_TO_RESULT_PAGE, QuestionRouter, Timer} from "../utils";
 import {useHistory} from "react-router-dom";
 
 const Exam = ({}) => {
@@ -51,7 +51,7 @@ const Exam = ({}) => {
 
     const getExamTime = () => {
         let time = new Date();
-        time.setSeconds(time.getSeconds() + 5400);
+        time.setSeconds(time.getSeconds() + 20);
         return time;
     }
 
@@ -69,7 +69,7 @@ const Exam = ({}) => {
                           type={currentQuestion.question.type}
                 />
             }
-            <Time expiryTimestamp={getExamTime}/>
+            <Timer expiryTimestamp={getExamTime}/>
             <div id="submitButton" className="d-grid gap-2 col-3 float-end me-3 mt-2">
                 <button className="btn btn-warning"
                         type="submit" onClick={() => history.push(PATH_TO_RESULT_PAGE)}>Завершити тест</button>

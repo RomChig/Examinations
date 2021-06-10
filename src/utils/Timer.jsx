@@ -1,9 +1,12 @@
 import {useTimer} from "react-timer-hook";
 import React from "react";
+import {useHistory} from "react-router-dom";
+import {PATH_TO_RESULT_PAGE} from "./utils";
 
 const formatTime = (param) => param.toString().length === 1 ? '0' + param : param;
 
-const Time = ({expiryTimestamp}) => {
+const Timer = ({expiryTimestamp}) => {
+    const history = useHistory();
     let {
         seconds,
         minutes,
@@ -11,6 +14,7 @@ const Time = ({expiryTimestamp}) => {
     } = useTimer({
         expiryTimestamp, onExpire: () => {
             alert('Час закiнчився');
+            history.push(PATH_TO_RESULT_PAGE);
         }
     });
 
@@ -25,4 +29,4 @@ const Time = ({expiryTimestamp}) => {
         </div>)
 
 };
-export default Time;
+export default Timer;
